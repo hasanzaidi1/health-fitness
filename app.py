@@ -10,7 +10,7 @@ class Application:
     def __init__(self):
         # Define your workout schedule
         self.workout_schedule = {
-            "Monday": "Pull Day (Back & Biceps)",
+            "Monday": "Pull Day (Back)",
             "Tuesday": "Biceps",
             "Wednesday": "Legs",
             "Thursday": "Push Day (Chest & Triceps)",
@@ -25,7 +25,7 @@ class Application:
 
         # Schedule the tasks
         schedule.every().day.at("09:00").do(self.morning_reminder)
-        schedule.every().day.at("14:19").do(self.end_of_day_checkin)
+        schedule.every().day.at("20:30").do(self.end_of_day_checkin)
 
         # Run the scheduler
         self.run_scheduler()
@@ -50,6 +50,7 @@ class Application:
         # Add an OK button
         ok_button = tk.Button(popup, text="OK", command=close_popup, padx=10, pady=5)
         ok_button.pack()
+
 
         popup.mainloop()
 
