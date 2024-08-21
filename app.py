@@ -56,9 +56,10 @@ class Application:
 
     # Morning reminder function
     def morning_reminder(self):
-        workout = self.get_todays_workout()
+        workout = self.get_todays_WO_plan()
+        workout_message = f"Good morning! Today is {datetime.datetime.now().strftime('%A')}, and your workout is: {workout}"
         self.show_popup("Workout Reminder",
-                        f"Good morning! Today is {datetime.datetime.now().strftime('%A')}, and your workout is: {workout}")
+                        workout_message)
 
     # End of day check-in function
     def end_of_day_checkin(self):
