@@ -1,12 +1,9 @@
 import datetime
-import schedule
-import time
 import tkinter as tk
 from tkinter import messagebox
 
 
 class Application:
-
     def __init__(self):
         # Define your workout schedule
         self.workout_schedule = {
@@ -23,15 +20,11 @@ class Application:
         self.root = tk.Tk()
         self.root.withdraw()
 
-        # Schedule the tasks
-        schedule.every().day.at("09:00").do(self.morning_reminder)
-        schedule.every().day.at("20:30").do(self.end_of_day_checkin)
-
-        # Run the scheduler
-        self.run_scheduler()
+        # Determine if it's morning or after 8:30 PM
+        self.check_time_and_trigger()
 
     # Get today's workout
-    def get_todays_workout(self):
+    def get_todays_WO_plan(self):
         today = datetime.datetime.now().strftime("%A")
         return self.workout_schedule.get(today, "Rest or Custom Workout")
 
@@ -51,15 +44,13 @@ class Application:
         ok_button = tk.Button(popup, text="OK", command=close_popup, padx=10, pady=5)
         ok_button.pack()
 
-
         popup.mainloop()
 
     # Morning reminder function
     def morning_reminder(self):
         workout = self.get_todays_WO_plan()
         workout_message = f"Good morning! Today is {datetime.datetime.now().strftime('%A')}, and your workout is: {workout}"
-        self.show_popup("Workout Reminder",
-                        workout_message)
+        self.show_popup("Workout Reminder", workout_message)
 
     # End of day check-in function
     def end_of_day_checkin(self):
@@ -86,11 +77,15 @@ class Application:
 
         popup.mainloop()
 
-    # Run the scheduler
-    def run_scheduler(self):
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+    # Check the time and trigger the appropriate reminder
+    def check_time_and_trigger(self):
+        current_time = datetime.datetime.now().time()
+
+        # Check if it's after 8:30 PM
+        if current_time >= datetime.time(20, 30):
+            self.end_of_day_checkin()
+        else:
+            self.morning_reminder()
 
 
 # Instantiate and run the application
