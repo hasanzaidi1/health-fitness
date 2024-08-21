@@ -43,12 +43,16 @@ class PullDay:
 
     def pullDay(self):
         latsWO = self.returnExercise(self.lats)
+        latsWO2 = self.returnExercise(self.lats)
         spinalErectorsWO = self.returnExercise(self.spinalErectors)
+        spinalErectorsWO2 = self.returnExercise(self.spinalErectors)
         rearDeltWO = self.returnExercise(self.rearDelts)
         trapsWO = self.returnExercise(self.traps)
 
         self.pullDayWOplan["Lats"] = latsWO
+        self.pullDayWOplan["Lats2"] = latsWO2
         self.pullDayWOplan["Spinal Erectors"] = spinalErectorsWO
+        self.pullDayWOplan["Spinal Erectors2"] = spinalErectorsWO2
         self.pullDayWOplan["Rear Delts"] = rearDeltWO
         self.pullDayWOplan["Traps"] = trapsWO
 
