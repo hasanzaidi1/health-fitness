@@ -9,12 +9,12 @@ class Application:
         # Define your workout schedule
         self.workout_schedule = {
             "Monday": "Pull Day (Back)",
-            "Tuesday": "Pull Day (Back)",
+            "Tuesday": "Biceps",
             "Wednesday": "Legs",
             "Thursday": "Push Day (Chest & Triceps)",
             "Friday": "Shoulders",
             "Saturday": "Rest or Cardio",
-            "Sunday": "Rest or Light Stretching"
+            "Sunday": "Abs and Swimming"
         }
 
         # Initialize Tk root
@@ -62,7 +62,8 @@ class Application:
 
         # Check if today is Pull Day
         if workout == "Pull Day (Back)":
-            workout_message = self.get_pull_day_plan()
+            workout_message = (f"Good morning! Today is {today}, and your workout is: \n\n"
+                               f"{self.get_pull_day_plan()}")
         else:
             workout_message = f"Good morning! Today is {today}, and your workout is: {workout}"
 
@@ -99,6 +100,22 @@ class Application:
         plan = workout.pullDay()
         plan_message = "\n".join([f"{key}: {value}" for key, value in plan.items()])
         return plan_message
+
+    # Get Biceps Day workout plan
+    def get_biceps_day_plan(self):
+        pass
+
+    def get_legs_day_plan(self):
+        pass
+
+    def get_push_day_plan(self):
+        pass
+
+    def get_shoulders_day_plan(self):
+        pass
+
+    def get_abs_swim_day_plan(self):
+        pass
 
     # Check the time and trigger the appropriate reminder
     def check_time_and_trigger(self):
