@@ -1,6 +1,5 @@
 import random
 
-
 class PullDay:
     def __init__(self):
         self.lats = {
@@ -13,25 +12,25 @@ class PullDay:
         }
 
         self.traps = {
-            "Dumbbell Shrugs": 0,
-            "EZ bar Upright Row": 0,
-            "Face Pulls (with rope)": 0,
-            "Rear Delt Fly (with rope)": 0
+            "Dumbbell Shrugs": "3x12 (50-55-60)",
+            "EZ bar Upright Row": "3x10 (60-65-70)",
+            "Face Pulls (with rope)": "3x15 (40-45-50)",
+            "Rear Delt Fly (with rope)": "3x15 (25-30-35)"
         }
 
         self.rearDelts = {
-            "Bent-Over Row": 0,
-            "Face Pulls (with rope)": 0,
-            "Seated Bent-over lateral raise": 0,
-            "Rear Delt Fly (with rope)": 0
+            "Bent-Over Row": "3x10 (100-105-110)",
+            "Face Pulls (with rope)": "3x15 (40-45-50)",
+            "Seated Bent-over lateral raise": "3x12 (15-20-25)",
+            "Rear Delt Fly (with rope)": "3x15 (25-30-35)"
         }
 
         self.spinalErectors = {
-            "Deadlift": 0,
-            "Bent-Over Row": 0,
-            "Back Extensions": 0,
-            "Glute Bridge": 0,
-            "Prone Superman": 0
+            "Deadlift": "3x5 (200-210-220)",
+            "Bent-Over Row": "3x10 (100-105-110)",
+            "Back Extensions": "3x12 (Bodyweight)",
+            "Glute Bridge": "3x10 (Bodyweight)",
+            "Prone Superman": "3x15 (Bodyweight)"
         }
 
         # Initialize the workout plan
@@ -53,11 +52,10 @@ class PullDay:
         self.pullDayWOplan["Rear Delts"] = rearDeltWO
         self.pullDayWOplan["Traps"] = trapsWO
 
-    def printWorkoutPlan(self):
-        self.pullDay()
-        print(self.pullDayWOplan)
+        return self.pullDayWOplan
 
-
-# Instantiate the class and generate the workout plan
-workout = PullDay()
-workout.printWorkoutPlan()
+# Example usage
+if __name__ == "__main__":
+    workout = PullDay()
+    plan = workout.pullDay()
+    print(plan)

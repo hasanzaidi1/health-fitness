@@ -1,6 +1,7 @@
 import datetime
 import tkinter as tk
 from tkinter import messagebox
+from pullDay import PullDay  # Import the PullDay class from pullDay.py
 
 
 class Application:
@@ -16,11 +17,11 @@ class Application:
             "Sunday": "Rest or Light Stretching"
         }
 
-        # Initialize Tk root and hide it
+        # Initialize Tk root
         self.root = tk.Tk()
         self.root.withdraw()
 
-        # Determine if it's morning or after 8:30 PM
+        # Determine if it's morning or after 11:30 PM
         self.check_time_and_trigger()
 
     # Get today's workout
@@ -48,8 +49,15 @@ class Application:
 
     # Morning reminder function
     def morning_reminder(self):
+        today = datetime.datetime.now().strftime("%A")
         workout = self.get_todays_WO_plan()
-        workout_message = f"Good morning! Today is {datetime.datetime.now().strftime('%A')}, and your workout is: {workout}"
+
+        # Check if today is Pull Day
+        if workout == "Pull Day (Back)":
+            workout_message = self.get_pull_day_plan()
+        else:
+            workout_message = f"Good morning! Today is {today}, and your workout is: {workout}"
+
         self.show_popup("Workout Reminder", workout_message)
 
     # End of day check-in function
@@ -77,12 +85,19 @@ class Application:
 
         popup.mainloop()
 
+    # Get Pull Day workout plan
+    def get_pull_day_plan(self):
+        workout = PullDay()
+        plan = workout.pullDay()
+        plan_message = "\n".join([f"{key}: {value}" for key, value in plan.items()])
+        return plan_message
+
     # Check the time and trigger the appropriate reminder
     def check_time_and_trigger(self):
         current_time = datetime.datetime.now().time()
 
-        # Check if it's after 8:30 PM
-        if current_time >= datetime.time(20, 30):
+        # Check if it's after 11:30 PM
+        if current_time >= datetime.time(23, 30):
             self.end_of_day_checkin()
         else:
             self.morning_reminder()
