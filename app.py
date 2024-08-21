@@ -2,6 +2,7 @@ import datetime
 import tkinter as tk
 import pyperclip  # Import pyperclip for clipboard operations
 from pullDay import PullDay  # Import the PullDay class from pullDay.py
+from pushDay import PushDay
 
 
 class Application:
@@ -64,6 +65,9 @@ class Application:
         if workout == "Pull Day (Back)":
             workout_message = (f"Good morning! Today is {today}, and your workout is: \n\n"
                                f"{self.get_pull_day_plan()}")
+        elif workout == "Push Day (Chest & Triceps)":
+            workout_message = (f"Good morning! Today is {today}, and your workout is: \n\n"
+                               f"{self.get_push_day_plan()}")
         else:
             workout_message = f"Good morning! Today is {today}, and your workout is: {workout}"
 
@@ -109,7 +113,11 @@ class Application:
         pass
 
     def get_push_day_plan(self):
-        pass
+        workout = PushDay()
+        plan = workout.pushDay()
+        plan_message = "\n".join([f"{key}: {value}" for key, value in plan.items()])
+        return plan_message
+
 
     def get_shoulders_day_plan(self):
         pass
@@ -122,7 +130,7 @@ class Application:
         current_time = datetime.datetime.now().time()
 
         # Check if it's after 11:30 PM
-        if current_time >= datetime.time(23, 30):
+        if current_time >= datetime.time(23, 55):
             self.end_of_day_checkin()
         else:
             self.morning_reminder()
