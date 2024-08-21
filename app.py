@@ -130,7 +130,7 @@ class Application:
         current_time = datetime.datetime.now().time()
 
         # Check if it's after 11:30 PM
-        if current_time >= datetime.time(23, 55):
+        if current_time >= datetime.time(20, 30):
             self.end_of_day_checkin()
         else:
             self.morning_reminder()
