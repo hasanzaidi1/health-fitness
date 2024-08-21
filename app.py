@@ -3,7 +3,7 @@ import tkinter as tk
 import pyperclip  # Import pyperclip for clipboard operations
 from exercises.pullDay import PullDay  # Import the PullDay class from pullDay.py
 from exercises.pushDay import PushDay
-
+from exercises.legDay import LegsWorkout
 
 class Application:
     def __init__(self):
@@ -63,11 +63,14 @@ class Application:
 
         # Check if today is Pull Day
         if workout == "Pull Day (Back)":
-            workout_message = (f"Good morning! Today is {today}, and your workout is: \n\n"
+            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
                                f"{self.get_pull_day_plan()}")
         elif workout == "Push Day (Chest & Triceps)":
-            workout_message = (f"Good morning! Today is {today}, and your workout is: \n\n"
+            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
                                f"{self.get_push_day_plan()}")
+        elif workout == "Legs":
+            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
+                               f"{self.get_legs_day_plan()}")
         else:
             workout_message = f"Good morning! Today is {today}, and your workout is: {workout}"
 
@@ -110,7 +113,10 @@ class Application:
         pass
 
     def get_legs_day_plan(self):
-        pass
+        workout = LegsWorkout()
+        plan = workout.legDay()
+        plan_message = "\n".join([f"{key}: {value}" for key, value in plan.items()])
+        return plan_message
 
     def get_push_day_plan(self):
         workout = PushDay()
