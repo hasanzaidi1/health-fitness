@@ -1,6 +1,7 @@
 import random
 
 class PushDay:
+
     def __init__(self):
 
         self.upperBodWarmUp = {

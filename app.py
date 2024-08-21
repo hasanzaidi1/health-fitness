@@ -1,8 +1,8 @@
 import datetime
 import tkinter as tk
 import pyperclip  # Import pyperclip for clipboard operations
-from pullDay import PullDay  # Import the PullDay class from pullDay.py
-from pushDay import PushDay
+from exercises.pullDay import PullDay  # Import the PullDay class from pullDay.py
+from exercises.pushDay import PushDay
 
 
 class Application:
