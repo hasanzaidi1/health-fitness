@@ -1,6 +1,6 @@
 import datetime
 import tkinter as tk
-from tkinter import messagebox
+import pyperclip  # Import pyperclip for clipboard operations
 from pullDay import PullDay  # Import the PullDay class from pullDay.py
 
 
@@ -9,7 +9,7 @@ class Application:
         # Define your workout schedule
         self.workout_schedule = {
             "Monday": "Pull Day (Back)",
-            "Tuesday": "Biceps",
+            "Tuesday": "Pull Day (Back)",
             "Wednesday": "Legs",
             "Thursday": "Push Day (Chest & Triceps)",
             "Friday": "Shoulders",
@@ -34,6 +34,10 @@ class Application:
         def close_popup():
             popup.destroy()
 
+        def copy_to_clipboard():
+            pyperclip.copy(message)  # Copy the message to clipboard
+            copy_button.config(text="Copied!")  # Change button text to indicate success
+
         popup = tk.Toplevel()
         popup.title(title)
 
@@ -41,9 +45,13 @@ class Application:
         label = tk.Label(popup, text=message, padx=20, pady=20)
         label.pack()
 
+        # Add a Copy button
+        copy_button = tk.Button(popup, text="Copy", command=copy_to_clipboard, padx=10, pady=5)
+        copy_button.pack(side=tk.LEFT, padx=10)
+
         # Add an OK button
         ok_button = tk.Button(popup, text="OK", command=close_popup, padx=10, pady=5)
-        ok_button.pack()
+        ok_button.pack(side=tk.RIGHT, padx=10)
 
         popup.mainloop()
 
