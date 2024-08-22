@@ -40,11 +40,11 @@ class Biceps:
         bicepsSH2 = self.returnExercise(self.bicepsShortHead)
         brachialis = self.returnExercise(self.brachialis)
 
-        self.legDayWOplan["Biceps Long Head 1"] = bicepsLH1
-        self.legDayWOplan["Biceps Long Head 2"] = bicepsLH2
-        self.legDayWOplan["Biceps Short Head 1"] = bicepsSH1
-        self.legDayWOplan["Biceps Short Head 2"] = bicepsSH2
-        self.legDayWOplan["Brachialis"] = brachialis
+        self.bicepsWOPlan["Biceps Long Head 1"] = bicepsLH1
+        self.bicepsWOPlan["Biceps Long Head 2"] = bicepsLH2
+        self.bicepsWOPlan["Biceps Short Head 1"] = bicepsSH1
+        self.bicepsWOPlan["Biceps Short Head 2"] = bicepsSH2
+        self.bicepsWOPlan["Brachialis"] = brachialis
 
         return self.bicepsWOPlan
 

@@ -19,6 +19,15 @@ class Application:
             "Sunday": "Abs and Swimming"
         }
 
+        # Define a mapping of workouts to their plan methods
+        self.workout_plans = {
+            "Pull Day (Back)": self.get_pull_day_plan,
+            "Push Day (Chest & Triceps)": self.get_push_day_plan,
+            "Legs": self.get_legs_day_plan,
+            "Biceps": self.get_biceps_day_plan,
+            # Add more as needed
+        }
+
         # Initialize Tk root
         self.root = tk.Tk()
         self.root.withdraw()
@@ -62,19 +71,10 @@ class Application:
         today = datetime.datetime.now().strftime("%A")
         workout = self.get_todays_WO_plan()
 
-
-        if workout == "Pull Day (Back)":
-            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
-                               f"{self.get_pull_day_plan()}")
-        elif workout == "Push Day (Chest & Triceps)":
-            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
-                               f"{self.get_push_day_plan()}")
-        elif workout == "Legs":
-            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
-                               f"{self.get_legs_day_plan()}")
-        elif workout == "Biceps":
-            workout_message = (f"Good morning! Today is {today}, and your workout is:{workout} \n\n"
-                               f"{self.get_biceps_day_plan()}")
+        # Use the workout_plans dictionary to get the correct workout plan method
+        if workout in self.workout_plans:
+            workout_plan = self.workout_plans[workout]()
+            workout_message = f"Good morning! Today is {today}, and your workout is: {workout} \n\n{workout_plan}"
         else:
             workout_message = f"Good morning! Today is {today}, and your workout is: {workout}"
 
