@@ -3,52 +3,51 @@ import random
 
 class LegsWorkout:
     def __init__(self):
-
         self.legWarmUp = {
-            "Jump Lunges": "",
-            "Deadlifts": "",
-            "Jump Rope": "",
-            "Resistence Band Side to Side Lunges": ""
+            "Jump Lunges": "3x15 (Bodyweight)",
+            "Deadlifts": "4x6 (70-80-90kg)",
+            "Jump Rope": "3x60 seconds",
+            "Resistance Band Side to Side Lunges": "3x12 each side (Resistance Band)"
         }
 
         self.glutes = {
-            "Resistence Band Glute Kick" : "",
-            "Cable Pull Through" : "",
-            "Deadlifts" : "",
-            "Kettlebell Swing" : "",
-            "Hip Thrust" : "",
-            "Sumo Deadlift" : "",
-            "Reverse Lunges" : "",
-            "Leg curls" : "",
-            "TOE UP HIP LIFT" : "",
-            "STEP UP" : "",
-            "TOE DOWN (STAB) HIP LIFT" : ""
+            "Resistance Band Glute Kick": "3x15 each side (Resistance Band)",
+            "Cable Pull Through": "4x12 (30-35-40kg)",
+            "Deadlifts": "4x6 (80-90-100kg)",
+            "Kettlebell Swing": "3x15 (20-25-30kg)",
+            "Hip Thrust": "4x8 (60-70-80kg)",
+            "Sumo Deadlift": "4x6 (80-90-100kg)",
+            "Reverse Lunges": "3x12 each side (20-25-30kg)",
+            "Leg Curls": "3x12 (40-45-50kg)",
+            "Toe Up Hip Lift": "3x15 (Bodyweight)",
+            "Step Up": "3x12 each side (20-25-30kg)",
+            "Toe Down (Stab) Hip Lift": "3x15 (Bodyweight)"
         }
 
         self.quads = {
-            "Leg Press" : "",
-            "Leg Extension" : "",
-            "Jump Lunges": "",
-            "Dumbbell Lunge" : "",
-            "Dumbbell Rear Lunge" : "",
-            "Frog Squat" : "",
+            "Leg Press": "4x10 (100-120-140kg)",
+            "Leg Extension": "3x12 (40-50-60kg)",
+            "Jump Lunges": "3x15 (Bodyweight)",
+            "Dumbbell Lunge": "3x12 each side (20-25-30kg)",
+            "Dumbbell Rear Lunge": "3x12 each side (20-25-30kg)",
+            "Frog Squat": "3x15 (Bodyweight)"
         }
 
         self.hams = {
-            "Deadlifts" : "",
-            "Romanian Deadlift": "",
-            "Lying Leg Curls": "",
-            "Seated Ham Curls": "",
-            "Good Mornings": "",
-            "Kettlebell swing": "",
-            "Stiff-Legged Deadlift": "",
-            "Sumo Deadlifts" : ""
+            "Deadlifts": "4x6 (80-90-100kg)",
+            "Romanian Deadlift": "4x8 (60-70-80kg)",
+            "Lying Leg Curls": "3x12 (30-35-40kg)",
+            "Seated Ham Curls": "3x12 (40-45-50kg)",
+            "Good Mornings": "3x12 (40-50-60kg)",
+            "Kettlebell Swing": "3x15 (20-25-30kg)",
+            "Stiff-Legged Deadlift": "4x8 (60-70-80kg)",
+            "Sumo Deadlifts": "4x6 (80-90-100kg)"
         }
 
         self.calfs = {
-            "Seated Calf Raise": "",
-            "Standing Calf Raise": "",
-            "1-½ CALF RAISES" : ""
+            "Seated Calf Raise": "4x15 (40-50-60kg)",
+            "Standing Calf Raise": "4x15 (Bodyweight)",
+            "1-½ Calf Raises": "3x15 (Bodyweight)"
         }
 
         # Initialize the workout plan
