@@ -5,6 +5,7 @@ from exercises.pullDay import PullDay  # Import the PullDay class from pullDay.p
 from exercises.pushDay import PushDay
 from exercises.legDay import LegsWorkout
 from exercises.biceps import Biceps
+from exercises.shoulders import Shoulders
 
 class Application:
     def __init__(self):
@@ -25,6 +26,7 @@ class Application:
             "Push Day (Chest & Triceps)": self.get_push_day_plan,
             "Legs": self.get_legs_day_plan,
             "Biceps": self.get_biceps_day_plan,
+            "Shoulders": self.get_shoulders_day_plan
             # Add more as needed
         }
 
@@ -133,7 +135,10 @@ class Application:
 
 
     def get_shoulders_day_plan(self):
-        pass
+        workout = Shoulders()
+        plan = workout.shoulderDay()
+        plan_message = "\n".join([f"{key}: {value}" for key, value in plan.items()])
+        return plan_message
 
     def get_abs_swim_day_plan(self):
         pass
